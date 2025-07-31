@@ -6,7 +6,6 @@ A lightweight and easy-to-use .NET library for accessing public events and holid
 
 dotnet add package Easy.Tools.GoogleCalendarEvents
 
-
 ## Features
 
 - Fetch all events from a specified Google Calendar
