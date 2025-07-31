@@ -3,9 +3,7 @@ using Easy.Tools.GoogleCalendarEvents.Services;
 using Moq;
 using Moq.Protected;
 using System.Net;
-using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using Xunit;
 
 namespace Easy.Tools.GoogleCalendarEvents.Tests
