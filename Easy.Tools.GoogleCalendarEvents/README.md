@@ -44,6 +44,14 @@ foreach (var item in events)
 - .NET 8.0 or higher
 - A valid Google Calendar API Key 
 
+## Testing
+
+Unit tests are located under `Easy.Tools.GoogleCalendarEvents.Tests`.
+You can run the tests via:
+
+dotnet test
+
+---
 ## License
 
 MIT License
