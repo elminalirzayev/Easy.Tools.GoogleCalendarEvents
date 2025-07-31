@@ -1,5 +1,4 @@
-name: Build Check
-
+name: Build & Test
 on:
   push:
     branches: [ "master" ]
@@ -24,3 +23,6 @@ jobs:
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      
+    - name: Run tests
+      run: dotnet test --no-build --configuration Release --logger "trx"
