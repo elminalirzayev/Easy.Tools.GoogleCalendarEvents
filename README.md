@@ -42,7 +42,7 @@ foreach (var item in events)
 ## Requirements
 
 - .NET 8.0 or higher
-- A valid Google Calendar API Key
+- A valid Google Calendar API Key 
 
 ## License
 
