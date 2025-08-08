@@ -2,10 +2,13 @@
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<TargetFramework>net8.0</TargetFramework>
+		<!--<TargetFramework>net48</TargetFramework>-->
+		<TargetFrameworks>net8.0;net7.0;net6.0;net48;net47;netstandard2.1;netstandard2.0;</TargetFrameworks>
+		<LangVersion>10.0</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
+		<Title>Easy.Tools.GoogleCalendarEvents</Title>
 		<PackageId>Easy.Tools.GoogleCalendarEvents</PackageId>
 		<Version>1.0.7</Version>
 		<Authors>Elmin Alirzayev</Authors>
@@ -25,6 +28,16 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-	
+
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <PackageReference Include="System.Net.Http" Version="4.3.4" />
+	  <PackageReference Include="System.Text.Json" Version="9.0.8" />
+	</ItemGroup>
+
+	<!--<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' Or '$(TargetFramework)' == 'net7.0' Or '$(TargetFramework)' == 'net6.0' ">
+		<PackageReference Include="System.Text.Json" Version="9.0.8" />
+	</ItemGroup>-->
+
 
 </Project>

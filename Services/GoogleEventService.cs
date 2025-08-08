@@ -1,7 +1,14 @@
 ﻿using Easy.Tools.GoogleCalendarEvents.Models;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+#if NETSTANDARD2_1_OR_GREATER
+using System.Text.Json;
+#else
+using Newtonsoft.Json;
+#endif
 
 namespace Easy.Tools.GoogleCalendarEvents.Services
 {
@@ -22,19 +29,26 @@ namespace Easy.Tools.GoogleCalendarEvents.Services
         {
             var url = BuildRequestUrl();
 
+#if NETSTANDARD2_1_OR_GREATER
             using var response = await _httpClient.GetAsync(url, cancellationToken);
             response.EnsureSuccessStatusCode();
-
-            var json = await response.Content.ReadAsStringAsync(cancellationToken);
-
+            var json = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             };
-
             var data = JsonSerializer.Deserialize<GoogleCalendarResponse>(json, options);
-
             return (data?.Items ?? new List<Item>()).AsReadOnly();
+#else
+            using (var response = await _httpClient.GetAsync(url))
+            {
+                response.EnsureSuccessStatusCode();
+                var json = await response.Content.ReadAsStringAsync();
+                var data = JsonConvert.DeserializeObject<GoogleCalendarResponse>(json);
+                return (data?.Items ?? new List<Item>()).AsReadOnly();
+            }
+#endif
+
         }
 
         private string BuildRequestUrl()
