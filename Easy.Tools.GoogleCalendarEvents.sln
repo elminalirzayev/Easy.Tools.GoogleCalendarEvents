@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.Tools.GoogleCalendarEvents", "Easy.Tools.GoogleCalendarEvents\Easy.Tools.GoogleCalendarEvents.csproj", "{B3B6630B-29BE-4320-9D27-0407D4FB359F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.Tools.GoogleCalendarEvents.Tests", "Easy.Tools.GoogleCalendarEvents.Tests\Easy.Tools.GoogleCalendarEvents.Tests.csproj", "{501609A0-120A-4069-9662-385E4590569D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.Tools.GoogleCalendarEvents", "Easy.Tools.GoogleCalendarEvents.csproj", "{B3B6630B-29BE-4320-9D27-0407D4FB359F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

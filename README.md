@@ -1,4 +1,11 @@
-﻿# Easy.Tools.GoogleCalendarEvents
+﻿[![Build & Test](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/build.yml/badge.svg)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/build.yml)
+[![Build & Release](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/release.yml/badge.svg)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/release.yml)
+[![Build & Nuget Publish](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/nuget.yml/badge.svg)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/nuget.yml)
+[![Release](https://img.shields.io/github/v/release/elminalirzayev/Easy.Tools.GoogleCalendarEvents)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/releases)
+[![License](https://img.shields.io/github/license/elminalirzayev/Easy.Tools.GoogleCalendarEvents)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/blob/master/LICENSE.txt)
+
+
+# Easy.Tools.GoogleCalendarEvents
 
 A lightweight and easy-to-use .NET library for accessing public events and holidays from any Google Calendar using the Google Calendar API.
 
@@ -10,7 +17,7 @@ dotnet add package Easy.Tools.GoogleCalendarEvents
 
 - Fetch all events from a specified Google Calendar
 - Full model support for deserialization
-- Supports official and localized holiday calendars (e.g., Turkey, Islamic holidays)
+- Supports official and localized holiday calendars
 - Simple and extensible API
 
 ## Quick Start
@@ -41,7 +48,6 @@ foreach (var item in events)
 
 ## Requirements
 
-- .NET 8.0 or higher
 - A valid Google Calendar API Key 
 
 ## License
