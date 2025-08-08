@@ -10,7 +10,7 @@
 
 		<Title>Easy.Tools.GoogleCalendarEvents</Title>
 		<PackageId>Easy.Tools.GoogleCalendarEvents</PackageId>
-		<Version>1.0.7</Version>
+		<Version>1.0.8</Version>
 		<Authors>Elmin Alirzayev</Authors>
 		<Company>Easy Code Tools</Company>
 		<Description>A lightweight .NET library to fetch public events from Google Calendar using the Calendar API.</Description>
