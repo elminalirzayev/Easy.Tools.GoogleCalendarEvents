@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<!--<TargetFrameworks>net8.0</TargetFrameworks>-->
-		<TargetFramework>net8.0</TargetFramework>
-		<!--<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net48;net47;netstandard2.1;</TargetFrameworks>-->
+		<!--<TargetFramework>net7.0</TargetFramework>-->
+		<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net48;net47;netstandard2.1;</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
@@ -25,7 +25,7 @@
 		<AssemblyTitle>Easy.Tools.GoogleCalendarEvents</AssemblyTitle>
 		<AssemblyName>Easy.Tools.GoogleCalendarEvents</AssemblyName>
 		<PackageId>Easy.Tools.GoogleCalendarEvents</PackageId>
-		<Version>1.0.10</Version>
+		<Version>1.0.11</Version>
 		<Authors>Elmin Alirzayev</Authors>
 		<Company>Easy Code Tools</Company>
 		<Copyright>Copyright © Elmin Alirzayev 2025</Copyright>
