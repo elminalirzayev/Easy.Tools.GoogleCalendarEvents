@@ -3,6 +3,7 @@
 [![Build & Nuget Publish](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/nuget.yml/badge.svg)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/actions/workflows/nuget.yml)
 [![Release](https://img.shields.io/github/v/release/elminalirzayev/Easy.Tools.GoogleCalendarEvents)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/releases)
 [![License](https://img.shields.io/github/license/elminalirzayev/Easy.Tools.GoogleCalendarEvents)](https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents/blob/master/LICENSE.txt)
+[![NuGet](https://img.shields.io/nuget/v/Easy.Tools.GoogleCalendarEvents.svg)](https://www.nuget.org/packages/Easy.Tools.GoogleCalendarEvents)
 
 
 # Easy.Tools.GoogleCalendarEvents

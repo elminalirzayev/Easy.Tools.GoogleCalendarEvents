@@ -2,23 +2,49 @@
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<!--<TargetFramework>net48</TargetFramework>-->
-		<TargetFrameworks>net8.0;net7.0;net6.0;net48;net47;netstandard2.1;netstandard2.0;</TargetFrameworks>
-		<LangVersion>10.0</LangVersion>
+		<!--<TargetFrameworks>net8.0</TargetFrameworks>-->
+		<TargetFramework>net8.0</TargetFramework>
+		<!--<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net48;net47;netstandard2.1;</TargetFrameworks>-->
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
+		<!-- Deterministic + SourceLink -->
+		<Deterministic>true</Deterministic>
+		<DebugType>portable</DebugType>
+		<EmbedAllSources>true</EmbedAllSources>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<EnableSourceLink>true</EnableSourceLink>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+
+		<!-- Package Info -->
 		<Title>Easy.Tools.GoogleCalendarEvents</Title>
+		<AssemblyTitle>Easy.Tools.GoogleCalendarEvents</AssemblyTitle>
+		<AssemblyName>Easy.Tools.GoogleCalendarEvents</AssemblyName>
 		<PackageId>Easy.Tools.GoogleCalendarEvents</PackageId>
-		<Version>1.0.8</Version>
+		<Version>1.0.10</Version>
 		<Authors>Elmin Alirzayev</Authors>
 		<Company>Easy Code Tools</Company>
+		<Copyright>Copyright © Elmin Alirzayev 2025</Copyright>
 		<Description>A lightweight .NET library to fetch public events from Google Calendar using the Calendar API.</Description>
 		<PackageTags>google calendar holidays events dotnet</PackageTags>
 		<RepositoryUrl>https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes>-</PackageReleaseNotes>
+
+		<!-- Build -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+		<LangVersion>10.0</LangVersion>
+
 
 	</PropertyGroup>
 
