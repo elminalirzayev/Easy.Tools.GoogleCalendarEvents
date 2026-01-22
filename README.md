@@ -11,8 +11,9 @@
 A lightweight and easy-to-use .NET library for accessing public events and holidays from any Google Calendar using the Google Calendar API.
 
 ## Installation
-
+```
 dotnet add package Easy.Tools.GoogleCalendarEvents
+```
 
 ## Features
 
@@ -22,7 +23,7 @@ dotnet add package Easy.Tools.GoogleCalendarEvents
 - Simple and extensible API
 
 ## Quick Start
-
+```csharp
 using Easy.Tools.GoogleCalendarEvents.Services;
 
 // Set your Google API key and calendar ID
@@ -37,7 +38,7 @@ foreach (var item in events)
 {
     Console.WriteLine(item); // Override of ToString prints event summary & dates
 }
-
+```
 ##  Example Calendars
 
 | Region / Purpose     | Calendar ID |
