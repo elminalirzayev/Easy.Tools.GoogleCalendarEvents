@@ -2,9 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<!--<TargetFrameworks>net8.0</TargetFrameworks>-->
-		<!--<TargetFramework>net7.0</TargetFramework>-->
-		<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net48;net47;netstandard2.1;</TargetFrameworks>
+		<TargetFrameworks>net10.0;net9.0;net8.0;net7.0;net6.0;net48;net47;netstandard2.0;</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
@@ -25,7 +23,7 @@
 		<AssemblyTitle>Easy.Tools.GoogleCalendarEvents</AssemblyTitle>
 		<AssemblyName>Easy.Tools.GoogleCalendarEvents</AssemblyName>
 		<PackageId>Easy.Tools.GoogleCalendarEvents</PackageId>
-		<Version>1.0.11</Version>
+		<Version>1.0.12</Version>
 		<Authors>Elmin Alirzayev</Authors>
 		<Company>Easy Code Tools</Company>
 		<Copyright>Copyright © Elmin Alirzayev 2025</Copyright>
@@ -56,14 +54,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-	  <PackageReference Include="System.Net.Http" Version="4.3.4" />
-	  <PackageReference Include="System.Text.Json" Version="9.0.8" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 
-	<!--<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' Or '$(TargetFramework)' == 'net7.0' Or '$(TargetFramework)' == 'net6.0' ">
-		<PackageReference Include="System.Text.Json" Version="9.0.8" />
-	</ItemGroup>-->
-
+	<ItemGroup Condition="'$(TargetFramework)' == 'net48' or '$(TargetFramework)' == 'net47'">
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.Json" Version="10.0.2" />
+	</ItemGroup>
+	
 
 </Project>
