@@ -5,12 +5,10 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-// Modern .NET için STJ
 #if NET6_0_OR_GREATER || NETSTANDARD2_1
 using System.Text.Json;
 #endif
 
-// Eski sürümler için Newtonsoft
 #if NETSTANDARD2_0 || NET472_OR_GREATER
 using Newtonsoft.Json;
 #endif
@@ -57,7 +55,7 @@ namespace Easy.Tools.GoogleCalendarEvents.Services
 
             string json;
 #if NET6_0_OR_GREATER
-                        json = await response.Content.ReadAsStringAsync(cancellationToken);
+            json = await response.Content.ReadAsStringAsync(cancellationToken);
 #else
             json = await response.Content.ReadAsStringAsync();
 #endif
