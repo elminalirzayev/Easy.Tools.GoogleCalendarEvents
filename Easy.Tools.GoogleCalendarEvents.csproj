@@ -2,9 +2,13 @@
 
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<TargetFrameworks>net10.0;net9.0;net8.0;net7.0;net6.0;net48;net47;netstandard2.0;</TargetFrameworks>
+		<!--<TargetFrameworks>netstandard2.1</TargetFrameworks>-->
+		<TargetFrameworks>net10.0;net9.0;net8.0;net7.0;net6.0;netstandard2.1;netstandard2.0;net48;net472</TargetFrameworks>
+
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+
 
 		<!-- Deterministic + SourceLink -->
 		<Deterministic>true</Deterministic>
@@ -23,7 +27,7 @@
 		<AssemblyTitle>Easy.Tools.GoogleCalendarEvents</AssemblyTitle>
 		<AssemblyName>Easy.Tools.GoogleCalendarEvents</AssemblyName>
 		<PackageId>Easy.Tools.GoogleCalendarEvents</PackageId>
-		<Version>1.0.13</Version>
+		<Version>1.0.14</Version>
 		<PackageIcon>icon.png</PackageIcon>
 		<Authors>Elmin Alirzayev</Authors>
 		<Company>Easy Code Tools</Company>
@@ -40,13 +44,15 @@
 		<!-- Build -->
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<NoWarn>$(NoWarn);1591</NoWarn>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
-		<LangVersion>latest</LangVersion>
-
 
 	</PropertyGroup>
+
+	<PropertyGroup Condition="$(TargetFramework.StartsWith('net4'))">
+		<DefineConstants>$(DefineConstants);NET472_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+
 
 	<ItemGroup>
 		<None Include="README.md">
@@ -59,14 +65,19 @@
 		</None>
 	</ItemGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+		<PackageReference Include="System.Text.Json" Version="10.0.2" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net48' or '$(TargetFramework)' == 'net47'">
-		<PackageReference Include="System.Net.Http" Version="4.3.4" />
-		<PackageReference Include="System.Text.Json" Version="10.0.2" />
+	<ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<Reference Include="System.Net.Http" />
 	</ItemGroup>
+
 
 
 </Project>
