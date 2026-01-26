@@ -31,8 +31,8 @@
 		<Authors>Elmin Alirzayev</Authors>
 		<Company>Easy Code Tools</Company>
 		<Copyright>Copyright © Elmin Alirzayev 2025</Copyright>
-		<Description>A lightweight .NET library to fetch public events from Google Calendar using the Calendar API.</Description>
-		<PackageTags>google calendar holidays events dotnet</PackageTags>
+		<Description>A lightweight .NET library to fetch public events from Google Calendar using the Calendar API. Optimized for both legacy and modern .NET.</Description>
+        <PackageTags>google calendar holidays events dotnet api json</PackageTags>
 		<RepositoryUrl>https://github.com/elminalirzayev/Easy.Tools.GoogleCalendarEvents</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>

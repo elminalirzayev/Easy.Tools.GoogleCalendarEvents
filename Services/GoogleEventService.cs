@@ -1,4 +1,9 @@
 ﻿using Easy.Tools.GoogleCalendarEvents.Models;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 
 #if NET6_0_OR_GREATER || NETSTANDARD2_1
 using System.Text.Json;
