@@ -1,11 +1,13 @@
-﻿#if NET6_0_OR_GREATER || NETSTANDARD2_1
+﻿using System.Globalization;
+
+#if NET6_0_OR_GREATER || NETSTANDARD2_1
 using System.Text.Json.Serialization;
 #endif
 #if NETSTANDARD2_0 || NET472_OR_GREATER
 using Newtonsoft.Json;
 #endif
 
-namespace Easy.Tools.GoogleCalendarEvents.Models
+namespace Easy.Tools.GoogleCalendarEvents
 {
     /// <summary>
     /// Represents the root response from the Google Calendar API.
@@ -13,7 +15,7 @@ namespace Easy.Tools.GoogleCalendarEvents.Models
     public class GoogleCalendarResponse
     {
         /// <summary>
-        /// Gets or sets the list of event items.
+        /// Gets or sets the list of calendar events.
         /// </summary>
 #if NET6_0_OR_GREATER || NETSTANDARD2_1
         [JsonPropertyName("items")]
@@ -21,13 +23,13 @@ namespace Easy.Tools.GoogleCalendarEvents.Models
 #if NETSTANDARD2_0 || NET472_OR_GREATER
         [JsonProperty("items")]
 #endif
-        public List<Item> Items { get; set; } = new List<Item>();
+        public List<GoogleCalendarEvent> Events { get; set; } = new List<GoogleCalendarEvent>();
     }
 
     /// <summary>
-    /// Represents a single event item in the calendar.
+    /// Represents a single event in the Google Calendar.
     /// </summary>
-    public class Item
+    public class GoogleCalendarEvent
     {
         /// <summary>
         /// Status of the event (e.g., "confirmed").
@@ -71,7 +73,7 @@ namespace Easy.Tools.GoogleCalendarEvents.Models
 #if NETSTANDARD2_0 || NET472_OR_GREATER
         [JsonProperty("start")]
 #endif
-        public DateValue Start { get; set; } = new DateValue();
+        public GoogleCalendarDate Start { get; set; } = new GoogleCalendarDate();
 
         /// <summary>
         /// The end date of the event.
@@ -82,19 +84,25 @@ namespace Easy.Tools.GoogleCalendarEvents.Models
 #if NETSTANDARD2_0 || NET472_OR_GREATER
         [JsonProperty("end")]
 #endif
-        public DateValue End { get; set; } = new DateValue();
+        public GoogleCalendarDate End { get; set; } = new GoogleCalendarDate();
 
         /// <inheritdoc />
         public override string ToString()
         {
-            return $"Summary: {Summary}, Description: {Description}, Status: {Status}, Start: {Start?.Date}, End: {End?.Date}";
+            // Format: [confirmed] Title (2023-01-01 - 2023-01-02)
+            var start = Start?.Date ?? "N/A";
+            var end = End?.Date ?? "N/A";
+            var summary = string.IsNullOrWhiteSpace(Summary) ? "(No Title)" : Summary;
+
+            return $"[{Status}] {summary} ({start} - {end})";
         }
     }
 
     /// <summary>
-    /// Wrapper for the date string.
+    /// Represents the date structure in Google Calendar API response.
+    /// Used typically for all-day events (holidays) where time is not provided.
     /// </summary>
-    public class DateValue
+    public class GoogleCalendarDate
     {
         /// <summary>
         /// The date in string format (YYYY-MM-DD).
@@ -106,5 +114,23 @@ namespace Easy.Tools.GoogleCalendarEvents.Models
         [JsonProperty("date")]
 #endif
         public string Date { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Helper property: Parses the string date to a C# DateTime object.
+        /// Returns DateTime.MinValue if parsing fails.
+        /// </summary>
+        [JsonIgnore]
+        public DateTime ParsedDate
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Date)) return DateTime.MinValue;
+
+                // Google Calendar "date" format is usually yyyy-MM-dd
+                return DateTime.TryParseExact(Date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dt)
+                    ? dt
+                    : DateTime.MinValue;
+            }
+        }
     }
 }

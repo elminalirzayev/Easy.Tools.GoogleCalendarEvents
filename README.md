@@ -46,7 +46,7 @@ To use this library, you need a **Google API Key** (no OAuth required for public
 ### 1. Basic Console Application
 
 ```csharp
-using Easy.Tools.GoogleCalendarEvents.Services;
+using Easy.Tools.GoogleCalendarEvents;
 
 // 1. Setup your credentials
 var apiKey = "YOUR_GOOGLE_API_KEY";
@@ -78,7 +78,7 @@ This library is designed to work seamlessly with `HttpClientFactory`.
 
 In `Program.cs`:
 ```csharp
-using Easy.Tools.GoogleCalendarEvents.Services;
+using Easy.Tools.GoogleCalendarEvents;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -114,6 +114,14 @@ You can use any public calendar ID. Here are some common ones for holidays:
 
  **Tip:** To find a Calendar ID, go to Google Calendar Settings > Add Calendar > Browse resources of interest, or look at the "Integrate calendar" section of any public calendar settings.
 
+
+---
+
+## Contributing
+
+Contributions and suggestions are welcome. Please open an issue or submit a pull request.
+
+---
 
 ## License
 

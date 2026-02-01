@@ -1,9 +1,4 @@
-﻿using Easy.Tools.GoogleCalendarEvents.Models;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Net.Http;
 
 #if NET6_0_OR_GREATER || NETSTANDARD2_1
 using System.Text.Json;
@@ -13,7 +8,7 @@ using System.Text.Json;
 using Newtonsoft.Json;
 #endif
 
-namespace Easy.Tools.GoogleCalendarEvents.Services
+namespace Easy.Tools.GoogleCalendarEvents
 {
     /// <summary>
     /// Provides functionality to fetch events from a public Google Calendar.
@@ -44,7 +39,7 @@ namespace Easy.Tools.GoogleCalendarEvents.Services
         /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A read-only list of calendar items.</returns>
         /// <exception cref="HttpRequestException">Thrown when the API request fails.</exception>
-        public async Task<IReadOnlyList<Item>> GetEventsAsync(CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyList<GoogleCalendarEvent>> GetEventsAsync(CancellationToken cancellationToken = default)
         {
             var url = BuildRequestUrl();
 
@@ -65,7 +60,7 @@ namespace Easy.Tools.GoogleCalendarEvents.Services
             };
 
             var data = JsonSerializer.Deserialize<GoogleCalendarResponse>(json, options);
-            return (data?.Items ?? new List<Item>()).AsReadOnly();
+            return (data?.Events ?? new List<GoogleCalendarEvent>()).AsReadOnly();
 
 #else
             // --- LEGACY (Newtonsoft.Json) ---
@@ -75,7 +70,7 @@ namespace Easy.Tools.GoogleCalendarEvents.Services
                 var json = await response.Content.ReadAsStringAsync();
                 
                 var data = JsonConvert.DeserializeObject<GoogleCalendarResponse>(json);
-                return (data?.Items ?? new List<Item>()).AsReadOnly();
+                return (data?.Events ?? new List<GoogleCalendarEvent>()).AsReadOnly();
             }
 #endif
         }
